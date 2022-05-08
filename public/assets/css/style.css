@@ -1,0 +1,28 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+html {
+  overflow: hidden;
+}
+
+.ball {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  left: -50%;
+  top: -50%;
+  border-radius: 50%;
+  background-color: tomato;
+
+  transform: translate(-50%, -50%);
+}
+.ip {
+  position: absolute;
+  font-family: monospace, sans-serif;
+  font-weight: bold;
+  font-size: 20px;
+  user-select: none;
+  top: -21px;
+}
