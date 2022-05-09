@@ -9,8 +9,11 @@ async function init() {
   let res = await fetch(`/api/ip`)
   ip = await res.json()
   document.addEventListener('mousemove', syncCursors)
+  document.addEventListener('touchmove', syncCursors)
 }
-
+function test(e) {
+  console.log(e.changedTouches)
+}
 
 
 const ws = new WebSocket(`ws://${location.hostname}:5001`)
@@ -42,7 +45,7 @@ window.addEventListener('unload', () => {
 
 
 function syncCursors(e) {
-  const {pageX, pageY} = e
+  const {pageX, pageY} = e.changedTouches ? e.changedTouches[0] : e 
   ws.send(JSON.stringify({
     id: ip,
     x: pageX,
