@@ -2,7 +2,7 @@ const coords = {}
 let ip
 
 async function init() {
-  let res = await fetch('/api/ip')
+  let res = await fetch(`http://${location.hostname}:5000/api/ip`)
   ip = await res.json()
   document.addEventListener('mousemove', syncCursors)
 }
